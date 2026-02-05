@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nikesh Patel - Principal Software Frontend Engineer | 8+ Years Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --heading-font: 'EB Garamond', 'Georgia', 'Times New Roman', serif;
+        --body-font: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        --primary: #1e3a5f;
+        --black: #1a1a1a;
+        --dark: #2d2d2d;
+        --mid: #4a4a4a;
+        --light-text: #5a5a5a;
+        --section-bg: #f5f7fa;
+        --border: #d0d5dd;
+        --white: #ffffff;
+        --page-w: 210mm;
+        --page-h: 297mm; /* A4 height */
+        --page-margin: 12mm;
+      }
+
+      body {
+        font-family: var(--body-font);
+        color: var(--dark);
+        background: #6b7280;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 16px;
+        line-height: 1.3;
+        -webkit-font-smoothing: antialiased;
+        gap: 20px;
+      }
+
+      .resume {
+        background: var(--white);
+        width: var(--page-w);
+        max-width: 100%;
+        min-height: var(--page-h);
+        padding: var(--page-margin);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+        margin-bottom: 50px;
+      }
+
+      /* ===== HEADER ===== */
+      .header {
+        text-align: center;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--primary);
+        margin-bottom: 12px;
+      }
+      .header h1 {
+        font-family: var(--heading-font);
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: var(--primary);
+        margin-bottom: 3px;
+      }
+      .header .subtitle {
+        font-family: var(--body-font);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        color: var(--dark);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+      }
+      .header .contact-row {
+        font-size: 10px;
+        color: var(--dark);
+        line-height: 1.6;
+      }
+      .header .contact-row a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+      .header .contact-row a:hover {
+        text-decoration: underline;
+      }
+      .header .contact-row .sep {
+        margin: 0 6px;
+        color: var(--border);
+      }
+
+      /* ===== SECTIONS ===== */
+      .section {
+        margin-bottom: 12px;
+      }
+      .section-title {
+        font-family: var(--body-font);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--primary);
+        background: var(--section-bg);
+        padding: 5px 10px;
+        margin-bottom: 8px;
+        border-left: 3px solid var(--primary);
+      }
+
+      /* ===== OVERVIEW TABLE ===== */
+      .overview-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 10px;
+        margin-bottom: 2px;
+      }
+      .overview-table td {
+        padding: 2px 0;
+        vertical-align: top;
+      }
+      .overview-table td:first-child {
+        font-weight: 600;
+        color: var(--dark);
+        width: 60%;
+      }
+      .overview-table td:last-child {
+        text-align: right;
+        font-weight: 700;
+        color: var(--black);
+      }
+
+      /* ===== SUMMARY ===== */
+      .summary-text {
+        font-size: 10.5px;
+        line-height: 1.5;
+        color: var(--dark);
+        text-align: justify;
+      }
+      .summary-text strong {
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      /* ===== JOBS ===== */
+      .job {
+        margin-bottom: 12px;
+      }
+      .job-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 2px;
+      }
+      .job-company {
+        font-family: var(--body-font);
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--primary);
+      }
+      .job-location {
+        font-size: 9px;
+        color: var(--light-text);
+      }
+      .job-role-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 4px;
+      }
+      .job-role {
+        font-size: 10.5px;
+        font-weight: 600;
+        color: var(--dark);
+      }
+      .job-date {
+        font-size: 9.5px;
+        color: var(--light-text);
+      }
+      .job ul {
+        list-style: disc;
+        padding-left: 16px;
+        margin-top: 3px;
+      }
+      .job li {
+        font-size: 10px;
+        line-height: 1.45;
+        color: var(--dark);
+        margin-bottom: 3px;
+      }
+
+      /* ===== PROJECTS ===== */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .project-card {
+        border: 1px solid var(--border);
+        padding: 8px 10px;
+        background: var(--white);
+        break-inside: avoid;
+      }
+      .project-name {
+        font-family: var(--body-font);
+        font-size: 10.5px;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 2px;
+      }
+      .project-tech {
+        font-size: 9px;
+        font-weight: 600;
+        color: var(--mid);
+        margin-bottom: 4px;
+      }
+      .project-desc {
+        font-size: 9.5px;
+        line-height: 1.4;
+        color: var(--dark);
+      }
+
+      /* ===== SKILLS ===== */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px 16px;
+      }
+      .skill-group {
+        margin-bottom: 2px;
+      }
+      .skill-label {
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--primary);
+        display: inline;
+      }
+      .skill-values {
+        font-size: 10px;
+        color: var(--dark);
+        display: inline;
+      }
+
+      /* ===== AWARDS ===== */
+      .awards-list {
+        list-style: none;
+      }
+      .award-item {
+        font-size: 10px;
+        margin-bottom: 3px;
+        color: var(--dark);
+      }
+      .award-item strong {
+        color: var(--primary);
+      }
+
+      /* ===== FOOTER ===== */
+      .footer {
+        margin-top: 20px;
+        padding-top: 10px;
+        border-top: 1px solid var(--border);
+        text-align: center;
+        font-size: 9px;
+        color: var(--light-text);
+      }
+
+      /* ===== UI CONTROLS ===== */
+      .ui-controls {
+        position: fixed;
+        bottom: 24px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        z-index: 100;
+      }
+      .btn {
+        min-width: 120px;
+        padding: 10px 14px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        color: #fff;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        transition: opacity 0.2s;
+      }
+      .btn:hover {
+        opacity: 0.9;
+      }
+      .btn-dark {
+        background: #1a1a1a;
+      }
+      .btn-blue {
+        background: #2563eb;
+      }
+
+      /* ===== PRINT ===== */
+      @media print {
+        @page {
+          size: A4;
+          margin: 10mm 12mm;
+        }
+        body {
+          background: #fff;
+          padding: 0;
+          margin: 0;
+          gap: 0;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .resume {
+          width: 100%;
+          max-width: none;
+          box-shadow: none;
+          margin: 0;
+          padding: 0;
+        }
+        .ui-controls,
+        .no-print {
+          display: none !important;
+        }
+        a {
+          text-decoration: none;
+          color: var(--primary);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="resume">
+      <div class="header">
+        <h1>Nikesh Patel</h1>
+        <div class="subtitle">Principal Software Frontend Engineer</div>
+        <div class="contact-row">
+          <a href="tel:+919727272120">+91 97272 72120</a>
+          <span class="sep">|</span>
+          <a href="mailto:patel.nikesh08@gmail.com">patel.nikesh08@gmail.com</a>
+          <span class="sep">|</span>
+          Anand, Gujarat, India
+        </div>
+        <div class="contact-row">
+          <a href="https://linkedin.com/in/nikesh-patel08" target="_blank"
+            >linkedin.com/in/nikesh-patel08</a
+          >
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Experience Snapshot</div>
+        <table class="overview-table">
+          <tr>
+            <td>Total Professional Experience:</td>
+            <td>8+ Years</td>
+          </tr>
+          <tr>
+            <td>Mobile Development (React Native &amp; iOS Native):</td>
+            <td>8+ Years</td>
+          </tr>
+          <tr>
+            <td>TV App Development (tvOS, TVML):</td>
+            <td>Proficient</td>
+          </tr>
+          <tr>
+            <td>Team Leadership &amp; Project Management:</td>
+            <td>Experienced</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Profile</div>
+        <p class="summary-text">
+          <strong>Principal Software Frontend Engineer</strong> with <strong>8+ years</strong> of
+          comprehensive experience in Mobile Application Development. Expert in
+          <strong>React Native</strong> and
+          <strong>Native iOS (Swift &amp; Objective-C)</strong> development. Proven track record of
+          building and managing large-scale applications serving <strong>millions of users</strong>.
+          Specialized in bridging Native modules, optimizing app performance, and implementing
+          complex features like Widgets, Encryption, and OTA updates. Committed to delivering
+          pixel-perfect interfaces, ensuring robust security, and leading development teams to
+          achieve organizational goals.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Skills</div>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <span class="skill-label">Core Languages: </span>
+            <span class="skill-values">JavaScript, TypeScript, Swift, Objective-C</span>
+          </div>
+          <div class="skill-group">
+            <span class="skill-label">Frameworks: </span>
+            <span class="skill-values">React Native, SwiftUI, NativeBase, TVML</span>
+          </div>
+          <div class="skill-group">
+            <span class="skill-label">State Management: </span>
+            <span class="skill-values">Redux, MobX, React Query, Apollo GraphQL</span>
+          </div>
+          <div class="skill-group">
+            <span class="skill-label">Native iOS: </span>
+            <span class="skill-values">Widgets, App Extensions, CocoaPods, Manual Linking</span>
+          </div>
+          <div class="skill-group">
+            <span class="skill-label">Tools &amp; CI/CD: </span>
+            <span class="skill-values">Git, Husky, SonarQube, Flipper, OTA (CodePush)</span>
+          </div>
+          <div class="skill-group">
+            <span class="skill-label">Integrations: </span>
+            <span class="skill-values">Firebase, Stripe, OneSignal, Google Cast, AirPlay</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Work Experience</div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-company">Logicwind Technologies LLP</span>
+            <span class="job-location">Surat, Gujarat</span>
+          </div>
+          <div class="job-role-row">
+            <span class="job-role">Senior Javascript Developer - React Native</span>
+            <span class="job-date">September 2019 &ndash; Present</span>
+          </div>
+          <ul>
+            <li>
+              Led development on a high-traffic project serving
+              <strong>millions of users</strong>, ensuring on-time delivery and stability.
+            </li>
+            <li>
+              Managed multiple feature branches in Git, performed code reviews for peers, and
+              mentored junior developers.
+            </li>
+            <li>
+              Developed pixel-perfect, fluid interfaces using NativeBase (v2/3), Lottie, and Moti
+              for high-end UX.
+            </li>
+            <li>
+              Implemented <strong>Native Modules</strong> and patches for npm packages to achieve
+              custom requirements and reduce reliance on forks.
+            </li>
+            <li>
+              Integrated <strong>App Config Encryption</strong> and secure storage solutions to
+              enhance application security.
+            </li>
+            <li>
+              Optimized application performance and minimized bundle sizes for both iOS and Android
+              platforms.
+            </li>
+            <li>
+              Integrated Husky for pre-commit hooks and SonarQube to maintain high code quality and
+              standards.
+            </li>
+            <li>
+              Implemented media streaming features including Video/Audio players, Google Cast, and
+              AirPlay.
+            </li>
+            <li>
+              Managed project scope for future sprints and utilized tools like ClickUp for task
+              management.
+            </li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-company">Hands Together Tech</span>
+            <span class="job-location">Surat, Gujarat</span>
+          </div>
+          <div class="job-role-row">
+            <span class="job-role">Senior iOS and React Native Developer</span>
+            <span class="job-date">January 2017 &ndash; August 2019</span>
+          </div>
+          <ul>
+            <li>
+              Developed global stateless components and implemented responsive designs supporting
+              auto-rotation for all device sizes.
+            </li>
+            <li>
+              Proficiently used <strong>MobX</strong> for efficient state management as an
+              alternative to Redux.
+            </li>
+            <li>
+              Integrated <strong>Stripe Payment Gateway</strong> and In-App Purchases (with restore
+              functionality) for large-scale applications.
+            </li>
+            <li>
+              Modified and customized the <strong>GUIPlayer</strong> library to meet specific Native
+              iOS video player requirements.
+            </li>
+            <li>
+              Integrated Firebase Analytics for event logging and Sentry for crash reporting to
+              improve user experience.
+            </li>
+            <li>
+              Resolved complex dependency conflicts and integrated third-party native libraries.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Technical Achievements &amp; Projects</div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-name">Vimeo Player Bridge (iOS)</div>
+            <div class="project-tech">Swift, React Native Bridge</div>
+            <div class="project-desc">
+              Developed a custom Native Bridge for Vimeo player integration in React Native to
+              unlock advanced functionalities not available in standard libraries.
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-name">iOS Widget Extensions</div>
+            <div class="project-tech">SwiftUI, iOS Native</div>
+            <div class="project-desc">
+              Created native iOS Home Screen Widgets using SwiftUI to highlight key app content and
+              improve user engagement.
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-name">App Update System</div>
+            <div class="project-tech">Swift, Native UI</div>
+            <div class="project-desc">
+              Built a smart App Update plugin that detects store updates and presents a custom
+              Native UI (Swift) to prompt users.
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-name">Multi-Variant Architecture</div>
+            <div class="project-tech">React Native, Build Configuration</div>
+            <div class="project-desc">
+              Architected a system for managing multiple app targets (staging, prod, dev) with
+              distinct icons, splash screens, and themes from a single codebase.
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-name">Secure App Infrastructure</div>
+            <div class="project-tech">Encryption, Security</div>
+            <div class="project-desc">
+              Implemented encrypted environment configurations and secure storage retrieval systems
+              to protect sensitive app data.
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-name">Media Streaming & Casting</div>
+            <div class="project-tech">AVPlayer, Google Cast, AirPlay</div>
+            <div class="project-desc">
+              Integrated complex media handling including background audio, video players, and
+              casting capabilities for TV support.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Honors &amp; Awards</div>
+        <ul class="awards-list">
+          <li class="award-item">
+            <strong>Employee of the Year (2022)</strong> &mdash; Logicwind Technologies LLP
+          </li>
+          <li class="award-item">
+            <strong>Ultimate Performer of the Year (2021)</strong> &mdash; Logicwind Technologies
+            LLP
+          </li>
+          <li class="award-item">
+            <strong>Ultimate Contributor of the Month (Dec 2021)</strong>
+            &mdash; Logicwind Technologies LLP
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Languages &amp; Interests</div>
+        <table class="overview-table">
+          <tr>
+            <td>Languages:</td>
+            <td>English, Hindi, Gujarati</td>
+          </tr>
+          <tr>
+            <td>Interests:</td>
+            <td>R&amp;D, VisionOS, Tech Blogging, Swift Programming</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="footer">
+        &copy; 2025 Nikesh Patel &mdash; Principal Software Frontend Engineer
+      </div>
+    </main>
+
+    <div class="ui-controls no-print">
+      <button class="btn btn-dark" onclick="window.print()">Save as PDF</button>
+      <button
+        class="btn btn-blue"
+        onclick="window.location.href = 'mailto:patel.nikesh08@gmail.com'">
+        Email Me
+      </button>
+    </div>
+  </body>
+</html>
