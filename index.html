@@ -3,610 +3,1362 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nikesh Patel - Principal Software Frontend Engineer | 8+ Years Experience</title>
+    <title>Nikesh Patel | Senior React Native Engineer</title>
+    <meta
+      name="description"
+      content="Nikesh Patel – Senior React Native Engineer with 9+ years building iOS, Android and smart TV apps (Android TV, Fire TV, Apple TV) with React Native, TypeScript and Swift." />
+    <meta property="og:title" content="Nikesh Patel | Senior React Native Engineer" />
+    <meta
+      property="og:description"
+      content="9+ years building iOS, Android and smart TV apps with React Native, TypeScript and Swift." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@500&display=swap"
       rel="stylesheet" />
 
     <style>
-      * {
+      *,
+      *::before,
+      *::after {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
       }
 
       :root {
-        --heading-font: 'EB Garamond', 'Georgia', 'Times New Roman', serif;
-        --body-font: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-        --primary: #1e3a5f;
-        --black: #1a1a1a;
-        --dark: #2d2d2d;
-        --mid: #4a4a4a;
-        --light-text: #5a5a5a;
-        --section-bg: #f5f7fa;
-        --border: #d0d5dd;
-        --white: #ffffff;
-        --page-w: 210mm;
-        --page-h: 297mm; /* A4 height */
-        --page-margin: 12mm;
+        --bg: #0b1020;
+        --bg-alt: #0f1629;
+        --card: #131c33;
+        --card-hover: #18233f;
+        --border: #24304d;
+        --text: #e6eaf2;
+        --muted: #9aa5bd;
+        --accent: #38bdf8;
+        --accent-2: #a78bfa;
+        --accent-soft: rgba(56, 189, 248, 0.12);
+        --radius: 14px;
+        --max: 1120px;
+        --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+        --display: Sora, 'Plus Jakarta Sans', -apple-system, 'Segoe UI', sans-serif;
+      }
+
+      h1,
+      h2,
+      h3,
+      .logo,
+      .hero-name,
+      .stat-value,
+      .contact-value {
+        font-family: var(--display);
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
       }
 
       body {
-        font-family: var(--body-font);
-        color: var(--dark);
-        background: #6b7280;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 16px;
-        line-height: 1.3;
-        -webkit-font-smoothing: antialiased;
-        gap: 20px;
-      }
-
-      .resume {
-        background: var(--white);
-        width: var(--page-w);
-        max-width: 100%;
-        min-height: var(--page-h);
-        padding: var(--page-margin);
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
-        margin-bottom: 50px;
-      }
-
-      /* ===== HEADER ===== */
-      .header {
-        text-align: center;
-        padding-bottom: 10px;
-        border-bottom: 2px solid var(--primary);
-        margin-bottom: 12px;
-      }
-      .header h1 {
-        font-family: var(--heading-font);
-        font-size: 28px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        color: var(--primary);
-        margin-bottom: 3px;
-      }
-      .header .subtitle {
-        font-family: var(--body-font);
-        font-size: 13px;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        color: var(--dark);
-        margin-bottom: 8px;
-        text-transform: uppercase;
-      }
-      .header .contact-row {
-        font-size: 10px;
-        color: var(--dark);
+        font-family: 'Plus Jakarta Sans', -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
         line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
       }
-      .header .contact-row a {
-        color: var(--primary);
+
+      a {
+        color: inherit;
         text-decoration: none;
       }
-      .header .contact-row a:hover {
-        text-decoration: underline;
+
+      .container {
+        width: 100%;
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 16px;
       }
-      .header .contact-row .sep {
-        margin: 0 6px;
-        color: var(--border);
+      @media (min-width: 768px) {
+        .container {
+          padding: 0 32px;
+        }
+      }
+
+      /* ===== NAV ===== */
+      .nav {
+        position: fixed;
+        inset: 0 0 auto 0;
+        z-index: 50;
+        background: rgba(11, 16, 32, 0.75);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s;
+      }
+      .nav.scrolled {
+        border-bottom-color: var(--border);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+      }
+      .logo {
+        font-weight: 800;
+        font-size: 18px;
+        letter-spacing: -0.3px;
+      }
+      .logo span {
+        color: var(--accent);
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--muted);
+        transition: color 0.2s;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--text);
+      }
+      .nav-toggle {
+        display: none;
+        background: none;
+        border: 0;
+        color: var(--text);
+        cursor: pointer;
+        padding: 8px;
+      }
+      .nav-toggle svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      @media (max-width: 860px) {
+        .nav-toggle {
+          display: block;
+        }
+        .nav-links {
+          position: absolute;
+          top: 64px;
+          left: 0;
+          right: 0;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0;
+          background: var(--bg-alt);
+          border-bottom: 1px solid var(--border);
+          display: none;
+        }
+        .nav-links.open {
+          display: flex;
+        }
+        .nav-links a {
+          display: block;
+          padding: 14px 16px;
+        }
+        .nav-links .btn {
+          margin: 8px 16px 16px;
+        }
+      }
+
+      /* ===== BUTTONS ===== */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 22px;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 600;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition:
+          transform 0.15s,
+          background 0.2s,
+          border-color 0.2s;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #0b1020;
+      }
+      .btn-ghost {
+        border-color: var(--border);
+        color: var(--text);
+        background: transparent;
+      }
+      .btn-ghost:hover {
+        border-color: var(--accent);
+      }
+      .nav-links .btn {
+        padding: 8px 16px;
+        font-size: 14px;
+        color: #0b1020;
+      }
+      .nav-links .btn:hover {
+        color: #0b1020;
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+        position: relative;
+        padding: 140px 0 80px;
+        overflow: hidden;
+      }
+      .hero::before,
+      .hero::after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(90px);
+        opacity: 0.35;
+        z-index: -1;
+      }
+      .hero::before {
+        width: 420px;
+        height: 420px;
+        background: var(--accent);
+        top: -120px;
+        right: -80px;
+      }
+      .hero::after {
+        width: 360px;
+        height: 360px;
+        background: var(--accent-2);
+        bottom: -160px;
+        left: -120px;
+      }
+      .hero-name {
+        display: inline-block;
+        font-size: clamp(24px, 3.5vw, 32px);
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        line-height: 1.2;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        border-bottom: 3px solid;
+        border-image: linear-gradient(90deg, var(--accent), var(--accent-2)) 1;
+      }
+      .eyebrow {
+        font-family: var(--mono);
+        font-size: 13px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 14px;
+      }
+      .hero h1 {
+        font-size: clamp(38px, 7vw, 68px);
+        line-height: 1.05;
+        font-weight: 800;
+        letter-spacing: -1.5px;
+        margin-bottom: 20px;
+      }
+      .gradient-text {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .hero-lead {
+        font-size: clamp(17px, 2.2vw, 20px);
+        color: var(--muted);
+        max-width: 680px;
+        margin-bottom: 32px;
+      }
+      .hero-lead strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+      .hero-cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 56px;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+      .stat {
+        background: rgba(19, 28, 51, 0.7);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 20px;
+      }
+      .stat-value {
+        font-size: clamp(28px, 4vw, 36px);
+        font-weight: 800;
+        letter-spacing: -1px;
+        line-height: 1.1;
+      }
+      .stat-label {
+        font-size: 14px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+      @media (max-width: 760px) {
+        .stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
       }
 
       /* ===== SECTIONS ===== */
-      .section {
-        margin-bottom: 12px;
+      section {
+        padding: 88px 0;
       }
-      .section-title {
-        font-family: var(--body-font);
-        font-size: 11px;
+      section.alt {
+        background: var(--bg-alt);
+      }
+      .section-head {
+        margin-bottom: 44px;
+        max-width: 680px;
+      }
+      .section-head h2 {
+        font-size: clamp(28px, 4.5vw, 40px);
+        font-weight: 800;
+        letter-spacing: -1px;
+        line-height: 1.15;
+      }
+      .section-head p {
+        color: var(--muted);
+        margin-top: 12px;
+        font-size: 17px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 20px;
+      }
+      .grid-3 {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+      .grid-2 {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      }
+      @media (max-width: 400px) {
+        .grid-2,
+        .grid-3 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 26px;
+        transition:
+          transform 0.2s,
+          border-color 0.2s,
+          background 0.2s;
+      }
+      .card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(56, 189, 248, 0.5);
+        background: var(--card-hover);
+      }
+      .card-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: var(--accent-soft);
+        color: var(--accent);
+        margin-bottom: 18px;
+      }
+      .card-icon svg {
+        width: 24px;
+        height: 24px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .card h3 {
+        font-size: 18px;
         font-weight: 700;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        color: var(--primary);
-        background: var(--section-bg);
-        padding: 5px 10px;
         margin-bottom: 8px;
-        border-left: 3px solid var(--primary);
+      }
+      .card p {
+        color: var(--muted);
+        font-size: 15px;
       }
 
-      /* ===== OVERVIEW TABLE ===== */
-      .overview-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 10px;
-        margin-bottom: 2px;
+      /* ===== ABOUT ===== */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 48px;
+        align-items: start;
       }
-      .overview-table td {
-        padding: 2px 0;
-        vertical-align: top;
+      .about-text p {
+        color: var(--muted);
+        font-size: 17px;
+        margin-bottom: 16px;
       }
-      .overview-table td:first-child {
+      .about-text p strong {
+        color: var(--text);
+      }
+      .facts {
+        list-style: none;
+        display: grid;
+        gap: 12px;
+      }
+      .facts li {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px 18px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        font-size: 15px;
+      }
+      .facts li span:first-child {
+        color: var(--muted);
+      }
+      .facts li span:last-child {
         font-weight: 600;
-        color: var(--dark);
-        width: 60%;
-      }
-      .overview-table td:last-child {
         text-align: right;
-        font-weight: 700;
-        color: var(--black);
+      }
+      @media (max-width: 860px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
       }
 
-      /* ===== SUMMARY ===== */
-      .summary-text {
-        font-size: 10.5px;
-        line-height: 1.5;
-        color: var(--dark);
-        text-align: justify;
+      /* ===== EXPERTISE ===== */
+      .skill-group h3 {
+        font-family: var(--mono);
+        font-size: 13px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 14px;
       }
-      .summary-text strong {
-        color: var(--primary);
-        font-weight: 700;
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .tag {
+        font-size: 13px;
+        font-weight: 500;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border);
+        color: var(--text);
       }
 
-      /* ===== JOBS ===== */
-      .job {
-        margin-bottom: 12px;
+      /* ===== EXPERIENCE TIMELINE ===== */
+      .timeline {
+        position: relative;
+        padding-left: 32px;
       }
-      .job-header {
+      .timeline::before {
+        content: '';
+        position: absolute;
+        left: 7px;
+        top: 6px;
+        bottom: 6px;
+        width: 2px;
+        background: linear-gradient(var(--accent), var(--accent-2), transparent);
+      }
+      .tl-item {
+        position: relative;
+        margin-bottom: 40px;
+      }
+      .tl-item:last-child {
+        margin-bottom: 0;
+      }
+      .tl-item::before {
+        content: '';
+        position: absolute;
+        left: -32px;
+        top: 6px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--bg);
+        border: 3px solid var(--accent);
+      }
+      .tl-head {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: baseline;
-        margin-bottom: 2px;
-      }
-      .job-company {
-        font-family: var(--body-font);
-        font-size: 12px;
-        font-weight: 700;
-        color: var(--primary);
-      }
-      .job-location {
-        font-size: 9px;
-        color: var(--light-text);
-      }
-      .job-role-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
+        gap: 4px 16px;
         margin-bottom: 4px;
       }
-      .job-role {
-        font-size: 10.5px;
-        font-weight: 600;
-        color: var(--dark);
+      .tl-head h3 {
+        font-size: 20px;
+        font-weight: 700;
       }
-      .job-date {
-        font-size: 9.5px;
-        color: var(--light-text);
+      .tl-date {
+        font-family: var(--mono);
+        font-size: 13px;
+        color: var(--accent);
       }
-      .job ul {
-        list-style: disc;
-        padding-left: 16px;
-        margin-top: 3px;
+      .tl-company {
+        color: var(--muted);
+        font-weight: 500;
+        margin-bottom: 16px;
       }
-      .job li {
-        font-size: 10px;
-        line-height: 1.45;
-        color: var(--dark);
-        margin-bottom: 3px;
+      .tl-company strong {
+        color: var(--text);
+      }
+      .tl-list {
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+      .tl-list li {
+        position: relative;
+        padding-left: 22px;
+        color: var(--muted);
+        font-size: 15px;
+      }
+      .tl-list li::before {
+        content: '▹';
+        position: absolute;
+        left: 0;
+        color: var(--accent);
       }
 
       /* ===== PROJECTS ===== */
-      .projects-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
+      .project .tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 16px;
       }
-      .project-card {
-        border: 1px solid var(--border);
-        padding: 8px 10px;
-        background: var(--white);
-        break-inside: avoid;
-      }
-      .project-name {
-        font-family: var(--body-font);
-        font-size: 10.5px;
-        font-weight: 700;
-        color: var(--primary);
-        margin-bottom: 2px;
-      }
-      .project-tech {
-        font-size: 9px;
-        font-weight: 600;
-        color: var(--mid);
-        margin-bottom: 4px;
-      }
-      .project-desc {
-        font-size: 9.5px;
-        line-height: 1.4;
-        color: var(--dark);
-      }
-
-      /* ===== SKILLS ===== */
-      .skills-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4px 16px;
-      }
-      .skill-group {
-        margin-bottom: 2px;
-      }
-      .skill-label {
-        font-size: 10px;
-        font-weight: 700;
-        color: var(--primary);
-        display: inline;
-      }
-      .skill-values {
-        font-size: 10px;
-        color: var(--dark);
-        display: inline;
+      .project .tech span {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--accent);
+        background: var(--accent-soft);
+        padding: 3px 8px;
+        border-radius: 6px;
       }
 
       /* ===== AWARDS ===== */
-      .awards-list {
+      .award {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .award .card-icon {
+        flex-shrink: 0;
+        margin-bottom: 0;
+        background: rgba(167, 139, 250, 0.14);
+        color: var(--accent-2);
+      }
+      .award-year {
+        font-family: var(--mono);
+        font-size: 13px;
+        color: var(--accent-2);
+      }
+
+      /* ===== CONTACT ===== */
+      .contact-box {
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(167, 139, 250, 0.1));
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: center;
+        padding: 56px 48px;
+      }
+      .contact-box h2 {
+        font-size: clamp(30px, 5vw, 44px);
+        font-weight: 800;
+        letter-spacing: -1px;
+        margin-bottom: 12px;
+      }
+      .contact-intro > p {
+        color: var(--muted);
+        font-size: 17px;
+        margin-bottom: 24px;
+      }
+      .availability {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(34, 197, 94, 0.1);
+        border: 1px solid rgba(34, 197, 94, 0.35);
+        color: #86efac;
+        margin-bottom: 20px;
+      }
+      .availability .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #22c55e;
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+      }
+      .looking-for {
         list-style: none;
+        display: grid;
+        gap: 8px;
+        margin-bottom: 28px;
       }
-      .award-item {
-        font-size: 10px;
-        margin-bottom: 3px;
-        color: var(--dark);
+      .looking-for li {
+        position: relative;
+        padding-left: 26px;
+        font-size: 15px;
       }
-      .award-item strong {
-        color: var(--primary);
+      .looking-for li::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-weight: 700;
+      }
+      .contact-cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .contact-cards {
+        display: grid;
+        gap: 12px;
+      }
+      .contact-card {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 18px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        transition:
+          border-color 0.2s,
+          transform 0.2s,
+          background 0.2s;
+        min-width: 0;
+      }
+      a.contact-card:hover {
+        border-color: var(--accent);
+        background: var(--card-hover);
+        transform: translateX(4px);
+      }
+      .contact-card .card-icon {
+        width: 42px;
+        height: 42px;
+        margin: 0;
+        flex-shrink: 0;
+      }
+      .contact-card .card-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+      .contact-card-body {
+        flex: 1;
+        min-width: 0;
+      }
+      .contact-label {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .contact-value {
+        font-weight: 600;
+        font-size: 15px;
+        overflow-wrap: anywhere;
+      }
+      .copy-btn {
+        flex-shrink: 0;
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--muted);
+        font: 500 13px/1 'Plus Jakarta Sans', sans-serif;
+        padding: 8px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .copy-btn:hover {
+        color: var(--text);
+        border-color: var(--accent);
+      }
+      @media (max-width: 860px) {
+        .contact-box {
+          grid-template-columns: 1fr;
+          gap: 32px;
+          padding: 36px 20px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .availability .dot {
+          animation: none;
+        }
       }
 
       /* ===== FOOTER ===== */
-      .footer {
-        margin-top: 20px;
-        padding-top: 10px;
+      footer {
         border-top: 1px solid var(--border);
-        text-align: center;
-        font-size: 9px;
-        color: var(--light-text);
+        padding: 28px 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .footer-inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .footer-links {
+        display: flex;
+        gap: 20px;
+      }
+      .footer-links a:hover {
+        color: var(--text);
       }
 
-      /* ===== UI CONTROLS ===== */
-      .ui-controls {
+      /* ===== TOAST ===== */
+      .toast {
         position: fixed;
-        bottom: 24px;
-        right: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
+        left: 50%;
+        bottom: 28px;
+        transform: translate(-50%, 20px);
+        background: var(--text);
+        color: var(--bg);
+        font-size: 14px;
+        font-weight: 500;
+        padding: 10px 18px;
+        border-radius: 8px;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
         z-index: 100;
       }
-      .btn {
-        min-width: 120px;
-        padding: 10px 14px;
-        border-radius: 4px;
-        font-size: 12px;
-        font-weight: 600;
-        border: none;
-        cursor: pointer;
-        color: #fff;
-        text-align: center;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        transition: opacity 0.2s;
-      }
-      .btn:hover {
-        opacity: 0.9;
-      }
-      .btn-dark {
-        background: #1a1a1a;
-      }
-      .btn-blue {
-        background: #2563eb;
+      .toast.show {
+        opacity: 1;
+        transform: translate(-50%, 0);
       }
 
-      /* ===== PRINT ===== */
-      @media print {
-        @page {
-          size: A4;
-          margin: 10mm 12mm;
+      /* ===== REVEAL ANIMATION ===== */
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
         }
-        body {
-          background: #fff;
-          padding: 0;
-          margin: 0;
-          gap: 0;
-          -webkit-print-color-adjust: exact;
-          print-color-adjust: exact;
+        .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
         }
-        .resume {
-          width: 100%;
-          max-width: none;
-          box-shadow: none;
-          margin: 0;
-          padding: 0;
-        }
-        .ui-controls,
-        .no-print {
-          display: none !important;
-        }
-        a {
-          text-decoration: none;
-          color: var(--primary);
+        .card,
+        .btn {
+          transition: none;
         }
       }
     </style>
   </head>
   <body>
-    <main class="resume">
-      <div class="header">
-        <h1>Nikesh Patel</h1>
-        <div class="subtitle">Principal Software Frontend Engineer</div>
-        <div class="contact-row">
-          <a href="tel:+919727272120">+91 97272 72120</a>
-          <span class="sep">|</span>
-          <a href="mailto:patel.nikesh08@gmail.com">patel.nikesh08@gmail.com</a>
-          <span class="sep">|</span>
-          Anand, Gujarat, India
-        </div>
-        <div class="contact-row">
-          <a href="https://linkedin.com/in/nikesh-patel08" target="_blank"
-            >linkedin.com/in/nikesh-patel08</a
-          >
-        </div>
-      </div>
-
-      <div class="section">
-        <div class="section-title">Experience Snapshot</div>
-        <table class="overview-table">
-          <tr>
-            <td>Total Professional Experience:</td>
-            <td>8+ Years</td>
-          </tr>
-          <tr>
-            <td>Mobile Development (React Native &amp; iOS Native):</td>
-            <td>8+ Years</td>
-          </tr>
-          <tr>
-            <td>TV App Development (tvOS, TVML):</td>
-            <td>Proficient</td>
-          </tr>
-          <tr>
-            <td>Team Leadership &amp; Project Management:</td>
-            <td>Experienced</td>
-          </tr>
-        </table>
-      </div>
-
-      <div class="section">
-        <div class="section-title">Profile</div>
-        <p class="summary-text">
-          <strong>Principal Software Frontend Engineer</strong> with <strong>8+ years</strong> of
-          comprehensive experience in Mobile Application Development. Expert in
-          <strong>React Native</strong> and
-          <strong>Native iOS (Swift &amp; Objective-C)</strong> development. Proven track record of
-          building and managing large-scale applications serving <strong>millions of users</strong>.
-          Specialized in bridging Native modules, optimizing app performance, and implementing
-          complex features like Widgets, Encryption, and OTA updates. Committed to delivering
-          pixel-perfect interfaces, ensuring robust security, and leading development teams to
-          achieve organizational goals.
-        </p>
-      </div>
-
-      <div class="section">
-        <div class="section-title">Skills</div>
-        <div class="skills-grid">
-          <div class="skill-group">
-            <span class="skill-label">Core Languages: </span>
-            <span class="skill-values">JavaScript, TypeScript, Swift, Objective-C</span>
-          </div>
-          <div class="skill-group">
-            <span class="skill-label">Frameworks: </span>
-            <span class="skill-values">React Native, SwiftUI, NativeBase, TVML</span>
-          </div>
-          <div class="skill-group">
-            <span class="skill-label">State Management: </span>
-            <span class="skill-values">Redux, MobX, React Query, Apollo GraphQL</span>
-          </div>
-          <div class="skill-group">
-            <span class="skill-label">Native iOS: </span>
-            <span class="skill-values">Widgets, App Extensions, CocoaPods, Manual Linking</span>
-          </div>
-          <div class="skill-group">
-            <span class="skill-label">Tools &amp; CI/CD: </span>
-            <span class="skill-values">Git, Husky, SonarQube, Flipper, OTA (CodePush)</span>
-          </div>
-          <div class="skill-group">
-            <span class="skill-label">Integrations: </span>
-            <span class="skill-values">Firebase, Stripe, OneSignal, Google Cast, AirPlay</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="section">
-        <div class="section-title">Work Experience</div>
-
-        <div class="job">
-          <div class="job-header">
-            <span class="job-company">Logicwind Technologies LLP</span>
-            <span class="job-location">Surat, Gujarat</span>
-          </div>
-          <div class="job-role-row">
-            <span class="job-role">Senior Javascript Developer - React Native</span>
-            <span class="job-date">September 2019 &ndash; Present</span>
-          </div>
-          <ul>
-            <li>
-              Led development on a high-traffic project serving
-              <strong>millions of users</strong>, ensuring on-time delivery and stability.
-            </li>
-            <li>
-              Managed multiple feature branches in Git, performed code reviews for peers, and
-              mentored junior developers.
-            </li>
-            <li>
-              Developed pixel-perfect, fluid interfaces using NativeBase (v2/3), Lottie, and Moti
-              for high-end UX.
-            </li>
-            <li>
-              Implemented <strong>Native Modules</strong> and patches for npm packages to achieve
-              custom requirements and reduce reliance on forks.
-            </li>
-            <li>
-              Integrated <strong>App Config Encryption</strong> and secure storage solutions to
-              enhance application security.
-            </li>
-            <li>
-              Optimized application performance and minimized bundle sizes for both iOS and Android
-              platforms.
-            </li>
-            <li>
-              Integrated Husky for pre-commit hooks and SonarQube to maintain high code quality and
-              standards.
-            </li>
-            <li>
-              Implemented media streaming features including Video/Audio players, Google Cast, and
-              AirPlay.
-            </li>
-            <li>
-              Managed project scope for future sprints and utilized tools like ClickUp for task
-              management.
-            </li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <div class="job-header">
-            <span class="job-company">Hands Together Tech</span>
-            <span class="job-location">Surat, Gujarat</span>
-          </div>
-          <div class="job-role-row">
-            <span class="job-role">Senior iOS and React Native Developer</span>
-            <span class="job-date">January 2017 &ndash; August 2019</span>
-          </div>
-          <ul>
-            <li>
-              Developed global stateless components and implemented responsive designs supporting
-              auto-rotation for all device sizes.
-            </li>
-            <li>
-              Proficiently used <strong>MobX</strong> for efficient state management as an
-              alternative to Redux.
-            </li>
-            <li>
-              Integrated <strong>Stripe Payment Gateway</strong> and In-App Purchases (with restore
-              functionality) for large-scale applications.
-            </li>
-            <li>
-              Modified and customized the <strong>GUIPlayer</strong> library to meet specific Native
-              iOS video player requirements.
-            </li>
-            <li>
-              Integrated Firebase Analytics for event logging and Sentry for crash reporting to
-              improve user experience.
-            </li>
-            <li>
-              Resolved complex dependency conflicts and integrated third-party native libraries.
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="section">
-        <div class="section-title">Technical Achievements &amp; Projects</div>
-        <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-name">Vimeo Player Bridge (iOS)</div>
-            <div class="project-tech">Swift, React Native Bridge</div>
-            <div class="project-desc">
-              Developed a custom Native Bridge for Vimeo player integration in React Native to
-              unlock advanced functionalities not available in standard libraries.
-            </div>
-          </div>
-          <div class="project-card">
-            <div class="project-name">iOS Widget Extensions</div>
-            <div class="project-tech">SwiftUI, iOS Native</div>
-            <div class="project-desc">
-              Created native iOS Home Screen Widgets using SwiftUI to highlight key app content and
-              improve user engagement.
-            </div>
-          </div>
-          <div class="project-card">
-            <div class="project-name">App Update System</div>
-            <div class="project-tech">Swift, Native UI</div>
-            <div class="project-desc">
-              Built a smart App Update plugin that detects store updates and presents a custom
-              Native UI (Swift) to prompt users.
-            </div>
-          </div>
-          <div class="project-card">
-            <div class="project-name">Multi-Variant Architecture</div>
-            <div class="project-tech">React Native, Build Configuration</div>
-            <div class="project-desc">
-              Architected a system for managing multiple app targets (staging, prod, dev) with
-              distinct icons, splash screens, and themes from a single codebase.
-            </div>
-          </div>
-          <div class="project-card">
-            <div class="project-name">Secure App Infrastructure</div>
-            <div class="project-tech">Encryption, Security</div>
-            <div class="project-desc">
-              Implemented encrypted environment configurations and secure storage retrieval systems
-              to protect sensitive app data.
-            </div>
-          </div>
-          <div class="project-card">
-            <div class="project-name">Media Streaming & Casting</div>
-            <div class="project-tech">AVPlayer, Google Cast, AirPlay</div>
-            <div class="project-desc">
-              Integrated complex media handling including background audio, video players, and
-              casting capabilities for TV support.
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="section">
-        <div class="section-title">Honors &amp; Awards</div>
-        <ul class="awards-list">
-          <li class="award-item">
-            <strong>Employee of the Year (2022)</strong> &mdash; Logicwind Technologies LLP
-          </li>
-          <li class="award-item">
-            <strong>Ultimate Performer of the Year (2021)</strong> &mdash; Logicwind Technologies
-            LLP
-          </li>
-          <li class="award-item">
-            <strong>Ultimate Contributor of the Month (Dec 2021)</strong>
-            &mdash; Logicwind Technologies LLP
-          </li>
+    <!-- ===== NAV ===== -->
+    <nav class="nav" id="nav" aria-label="Main">
+      <div class="container nav-inner">
+        <a href="#top" class="logo">Nikesh Patel</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#expertise">Expertise</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="https://nikeshp71.github.io/resume" target="_blank" rel="noopener" class="btn btn-primary">View Resume &rarr;</a></li>
         </ul>
       </div>
+    </nav>
 
-      <div class="section">
-        <div class="section-title">Languages &amp; Interests</div>
-        <table class="overview-table">
-          <tr>
-            <td>Languages:</td>
-            <td>English, Hindi, Gujarati</td>
-          </tr>
-          <tr>
-            <td>Interests:</td>
-            <td>R&amp;D, VisionOS, Tech Blogging, Swift Programming</td>
-          </tr>
-        </table>
-      </div>
+    <main id="top">
+      <!-- ===== HERO ===== -->
+      <header class="hero">
+        <div class="container">
+          <p class="hero-name">Nikesh Patel</p>
+          <p class="eyebrow">Senior React Native Engineer</p>
+          <h1>
+            I build mobile &amp; TV apps<br />
+            that <span class="gradient-text">feel native</span>.
+          </h1>
+          <p class="hero-lead">
+            For 9+ years I've shipped iOS, Android and smart
+            TV apps with <strong>React Native, TypeScript and Swift</strong>, from a 1M-user
+            consumer app to DRM-protected streaming apps on Android TV, Fire TV and Apple TV.
+          </p>
+          <div class="hero-cta">
+            <a href="https://nikeshp71.github.io/resume" target="_blank" rel="noopener" class="btn btn-primary">View Resume &rarr;</a>
+            <a href="#contact" class="btn btn-ghost">Contact Me</a>
+          </div>
 
-      <div class="footer">
-        &copy; 2025 Nikesh Patel &mdash; Principal Software Frontend Engineer
-      </div>
+          <div class="stats">
+            <div class="stat reveal">
+              <div class="stat-value gradient-text">9+</div>
+              <div class="stat-label">Years of experience</div>
+            </div>
+            <div class="stat reveal">
+              <div class="stat-value gradient-text">1M</div>
+              <div class="stat-label">Users on the app I lead</div>
+            </div>
+            <div class="stat reveal">
+              <div class="stat-value gradient-text">99%</div>
+              <div class="stat-label">Crash-free rate</div>
+            </div>
+            <div class="stat reveal">
+              <div class="stat-value gradient-text">6</div>
+              <div class="stat-label">Platforms shipped</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ===== ABOUT ===== -->
+      <section id="about" class="alt">
+        <div class="container">
+          <div class="about-grid">
+            <div class="about-text reveal">
+              <p class="eyebrow">About</p>
+              <div class="section-head" style="margin-bottom: 24px">
+                <h2>An engineer at home on both sides of the bridge</h2>
+              </div>
+              <p>
+                I currently lead React Native development at <strong>Logicwind Technologies</strong>
+                for a high-traffic consumer app with <strong>1M users</strong>, keeping it at a
+                <strong>99% crash-free rate</strong> across iOS and Android.
+              </p>
+              <p>
+                When a library falls short, I drop into native code. I write custom Native Modules in
+                Swift and Objective-C, build iOS Home Screen widgets, and ship visionOS features in
+                SwiftUI for Apple Vision Pro.
+              </p>
+              <p>
+                I care about clean, well-reviewed code and polished interfaces, and I enjoy leading
+                and mentoring teams of up to 4 developers.
+              </p>
+            </div>
+            <ul class="facts reveal">
+              <li><span>Based in</span><span>Anand, Gujarat, India</span></li>
+              <li><span>Current role</span><span>Senior RN Engineer @ Logicwind</span></li>
+              <li><span>Focus</span><span>Mobile, Smart TV &amp; visionOS</span></li>
+              <li><span>Team leadership</span><span>Up to 4 developers</span></li>
+              <li><span>Education</span><span>B.Tech, Computer Engineering</span></li>
+              <li><span>Languages</span><span>English, Hindi, Gujarati</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== WHAT I DO ===== -->
+      <section id="services">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">What I do</p>
+            <h2>From phone screens to living-room TVs</h2>
+          </div>
+          <div class="grid grid-3">
+            <article class="card reveal">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5" /><path d="M11 18h2" /></svg>
+              </div>
+              <h3>Cross-Platform Mobile</h3>
+              <p>
+                Production React Native apps for iOS and Android with TypeScript, REST and GraphQL
+                APIs, and state management with Redux, MobX and React Query.
+              </p>
+            </article>
+            <article class="card reveal">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2" /><path d="M8 21h8M12 17v4" /></svg>
+              </div>
+              <h3>Smart TV &amp; OTT</h3>
+              <p>
+                Streaming apps for Android TV, Amazon Fire TV and Apple TV with D-pad focus
+                navigation, captions and Top Shelf content.
+              </p>
+            </article>
+            <article class="card reveal">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4" /></svg>
+              </div>
+              <h3>Video Streaming &amp; DRM</h3>
+              <p>
+                Adaptive HLS and MPEG-DASH playback protected by Widevine and PlayReady, plus
+                Chromecast, AirPlay and background audio.
+              </p>
+            </article>
+            <article class="card reveal">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6" /></svg>
+              </div>
+              <h3>Native iOS &amp; Bridges</h3>
+              <p>
+                Custom Native Modules in Swift and Objective-C, Home Screen widgets, App Extensions,
+                and patched npm packages instead of long-lived forks.
+              </p>
+            </article>
+            <article class="card reveal">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z" /><circle cx="12" cy="12" r="3" /></svg>
+              </div>
+              <h3>visionOS</h3>
+              <p>
+                SwiftUI features that bring app content to Apple Vision Pro and its spatial
+                interface.
+              </p>
+            </article>
+            <article class="card reveal">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>
+              </div>
+              <h3>Performance &amp; Quality</h3>
+              <p>
+                Smaller bundles, faster apps, OTA updates with CodePush, and Husky and SonarQube
+                checks that catch issues before merge.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== EXPERTISE ===== -->
+      <section id="expertise" class="alt">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Expertise</p>
+            <h2>Core technical stack</h2>
+            <p>The tools I use day to day to ship and maintain apps in production.</p>
+          </div>
+          <div class="grid grid-2">
+            <div class="card skill-group reveal">
+              <h3>Languages</h3>
+              <div class="tags">
+                <span class="tag">JavaScript (ES6+)</span><span class="tag">TypeScript</span
+                ><span class="tag">Swift</span><span class="tag">Objective-C</span>
+              </div>
+            </div>
+            <div class="card skill-group reveal">
+              <h3>Platforms &amp; Frameworks</h3>
+              <div class="tags">
+                <span class="tag">React Native</span><span class="tag">iOS</span
+                ><span class="tag">Android</span><span class="tag">SwiftUI</span
+                ><span class="tag">visionOS</span>
+              </div>
+            </div>
+            <div class="card skill-group reveal">
+              <h3>TV Platforms</h3>
+              <div class="tags">
+                <span class="tag">React Native tvOS</span><span class="tag">Android TV</span
+                ><span class="tag">Amazon Fire TV</span><span class="tag">Apple TV (tvOS)</span
+                ><span class="tag">TVML</span><span class="tag">D-pad Focus Navigation</span
+                ><span class="tag">Top Shelf</span>
+              </div>
+            </div>
+            <div class="card skill-group reveal">
+              <h3>Streaming &amp; Playback</h3>
+              <div class="tags">
+                <span class="tag">HLS</span><span class="tag">MPEG-DASH</span
+                ><span class="tag">Widevine</span><span class="tag">PlayReady</span
+                ><span class="tag">AVPlayer</span><span class="tag">Chromecast</span
+                ><span class="tag">AirPlay</span><span class="tag">Captions</span>
+              </div>
+            </div>
+            <div class="card skill-group reveal">
+              <h3>APIs &amp; State</h3>
+              <div class="tags">
+                <span class="tag">REST</span><span class="tag">GraphQL</span
+                ><span class="tag">Apollo Client</span><span class="tag">React Query</span
+                ><span class="tag">Redux</span><span class="tag">MobX</span>
+              </div>
+            </div>
+            <div class="card skill-group reveal">
+              <h3>UI &amp; Animation</h3>
+              <div class="tags">
+                <span class="tag">NativeBase</span><span class="tag">Lottie</span
+                ><span class="tag">Moti</span><span class="tag">Responsive Layouts</span>
+              </div>
+            </div>
+            <div class="card skill-group reveal">
+              <h3>Integrations &amp; SDKs</h3>
+              <div class="tags">
+                <span class="tag">AppsOnAir Push SDK</span><span class="tag">OneSignal</span
+                ><span class="tag">Firebase Analytics</span><span class="tag">Sentry</span
+                ><span class="tag">Stripe</span><span class="tag">In-App Purchases</span>
+              </div>
+            </div>
+            <div class="card skill-group reveal">
+              <h3>Tools &amp; Practices</h3>
+              <div class="tags">
+                <span class="tag">Git</span><span class="tag">CodePush</span
+                ><span class="tag">Husky</span><span class="tag">SonarQube</span
+                ><span class="tag">Flipper</span><span class="tag">CocoaPods</span
+                ><span class="tag">Code Review</span><span class="tag">Agile</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== EXPERIENCE ===== -->
+      <section id="experience">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Experience</p>
+            <h2>Where I've worked</h2>
+          </div>
+          <div class="timeline">
+            <article class="tl-item reveal">
+              <div class="tl-head">
+                <h3>Senior React Native Engineer (Mobile &amp; Smart TV)</h3>
+                <span class="tl-date">Sep 2019 &ndash; Present</span>
+              </div>
+              <p class="tl-company"><strong>Logicwind Technologies LLP</strong> &middot; Surat, Gujarat</p>
+              <ul class="tl-list">
+                <li>Lead React Native development for a consumer app with 1M users, from sprint planning to release, at a 99% crash-free rate.</li>
+                <li>Lead a team of up to 4 developers: review pull requests, manage Git feature branches, and mentor juniors on React Native, TypeScript and native iOS.</li>
+                <li>Built streaming apps for Android TV, Fire TV and Apple TV with HLS, MPEG-DASH, Widevine and PlayReady DRM, casting and background audio.</li>
+                <li>Write custom Native Modules in Swift and Objective-C, and built visionOS features in SwiftUI for Apple Vision Pro.</li>
+                <li>Set up CodePush OTA updates, encrypted app configuration, and Husky and SonarQube quality gates; improved performance and bundle size.</li>
+                <li>Contributed to the AppsOnAir Push SDK for push notification delivery.</li>
+              </ul>
+            </article>
+            <article class="tl-item reveal">
+              <div class="tl-head">
+                <h3>Senior iOS &amp; React Native Developer</h3>
+                <span class="tl-date">Jan 2017 &ndash; Aug 2019</span>
+              </div>
+              <p class="tl-company"><strong>Hands Together Tech</strong> &middot; Surat, Gujarat</p>
+              <ul class="tl-list">
+                <li>Built reusable, stateless UI components with responsive layouts that handle rotation on every device size.</li>
+                <li>Integrated Stripe payments and In-App Purchases, including purchase restore, for large-scale apps.</li>
+                <li>Customized the GUIPlayer library into a native iOS video player that matched product requirements.</li>
+                <li>Added Firebase Analytics and Sentry, then used the data to fix issues and improve the user experience.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PROJECTS ===== -->
+      <section id="projects" class="alt">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Key projects</p>
+            <h2>Things I've built</h2>
+          </div>
+          <div class="grid grid-3">
+            <article class="card project reveal">
+              <h3>TV Streaming Apps</h3>
+              <p>DRM-protected OTT video apps for Android TV, Amazon Fire TV and Apple TV, with remote navigation, Top Shelf content, captions and casting.</p>
+              <div class="tech"><span>HLS</span><span>MPEG-DASH</span><span>Widevine</span><span>PlayReady</span></div>
+            </article>
+            <article class="card project reveal">
+              <h3>Vimeo Player Bridge</h3>
+              <p>A custom native iOS bridge for the Vimeo player, unlocking playback features existing React Native libraries didn't support.</p>
+              <div class="tech"><span>Swift</span><span>Native Module</span></div>
+            </article>
+            <article class="card project reveal">
+              <h3>iOS Home Screen Widgets</h3>
+              <p>Native widgets that surface key app content on the Home Screen and bring users back into the app.</p>
+              <div class="tech"><span>SwiftUI</span><span>WidgetKit</span><span>App Extensions</span></div>
+            </article>
+            <article class="card project reveal">
+              <h3>In-App Update Prompt</h3>
+              <p>A plugin that detects new App Store versions and shows users a custom native update screen.</p>
+              <div class="tech"><span>Swift</span><span>Native UI</span></div>
+            </article>
+            <article class="card project reveal">
+              <h3>Multi-Environment Setup</h3>
+              <p>Dev, staging and production builds from one codebase, each with its own app icon, splash screen and theme.</p>
+              <div class="tech"><span>React Native</span><span>Build Config</span></div>
+            </article>
+            <article class="card project reveal">
+              <h3>Secure App Configuration</h3>
+              <p>Encrypted environment configuration and secure retrieval for sensitive keys and user data.</p>
+              <div class="tech"><span>Encryption</span><span>Secure Storage</span></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== AWARDS ===== -->
+      <section id="awards">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Recognition</p>
+            <h2>Awards</h2>
+          </div>
+          <div class="grid grid-3">
+            <article class="card award reveal">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6" /><path d="M8.5 14L7 22l5-3 5 3-1.5-8" /></svg>
+              </div>
+              <div>
+                <p class="award-year">2022</p>
+                <h3>Employee of the Year</h3>
+                <p>Logicwind Technologies LLP</p>
+              </div>
+            </article>
+            <article class="card award reveal">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6" /><path d="M8.5 14L7 22l5-3 5 3-1.5-8" /></svg>
+              </div>
+              <div>
+                <p class="award-year">2021</p>
+                <h3>Ultimate Performer of the Year</h3>
+                <p>Logicwind Technologies LLP</p>
+              </div>
+            </article>
+            <article class="card award reveal">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6" /><path d="M8.5 14L7 22l5-3 5 3-1.5-8" /></svg>
+              </div>
+              <div>
+                <p class="award-year">Dec 2021</p>
+                <h3>Ultimate Contributor of the Month</h3>
+                <p>Logicwind Technologies LLP</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CONTACT ===== -->
+      <section id="contact" class="alt">
+        <div class="container">
+          <div class="contact-box reveal">
+            <div class="contact-intro">
+              <p class="eyebrow">Contact</p>
+              <h2>Let's build something together</h2>
+              <p>
+                Looking for a React Native engineer for mobile or smart TV work? Tell me about your
+                project and I'll get back to you.
+              </p>
+              <div class="availability"><span class="dot"></span>Open to new opportunities</div>
+              <ul class="looking-for">
+                <li>Senior / Lead React Native roles</li>
+                <li>Smart TV &amp; OTT streaming apps</li>
+                <li>Native iOS, Swift &amp; visionOS work</li>
+              </ul>
+              <div class="contact-cta">
+                <a href="mailto:patel.nikesh08@gmail.com?subject=Hi%20Nikesh" class="btn btn-primary">Send Email</a>
+                <a href="https://nikeshp71.github.io/resume" target="_blank" rel="noopener" class="btn btn-ghost">View Resume &rarr;</a>
+              </div>
+            </div>
+
+            <div class="contact-cards">
+              <div class="contact-card">
+                <div class="card-icon">
+                  <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M22 6l-10 7L2 6" /></svg>
+                </div>
+                <div class="contact-card-body">
+                  <div class="contact-label">Email</div>
+                  <a class="contact-value" href="mailto:patel.nikesh08@gmail.com">patel.nikesh08@gmail.com</a>
+                </div>
+                <button type="button" class="copy-btn" id="copy-email" aria-label="Copy email address">Copy</button>
+              </div>
+              <a class="contact-card" href="tel:+919727272120">
+                <div class="card-icon">
+                  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" /></svg>
+                </div>
+                <div class="contact-card-body">
+                  <div class="contact-label">Phone</div>
+                  <div class="contact-value">+91 97272 72120</div>
+                </div>
+              </a>
+              <a class="contact-card" href="https://www.linkedin.com/in/nikesh-patel08" target="_blank" rel="noopener noreferrer">
+                <div class="card-icon">
+                  <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg>
+                </div>
+                <div class="contact-card-body">
+                  <div class="contact-label">LinkedIn</div>
+                  <div class="contact-value">linkedin.com/in/nikesh-patel08</div>
+                </div>
+              </a>
+              <div class="contact-card">
+                <div class="card-icon">
+                  <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+                </div>
+                <div class="contact-card-body">
+                  <div class="contact-label">Location</div>
+                  <div class="contact-value">Anand, Gujarat, India &middot; Open to remote</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <div class="ui-controls no-print">
-      <button class="btn btn-dark" onclick="window.print()">Save as PDF</button>
-      <button
-        class="btn btn-blue"
-        onclick="window.location.href = 'mailto:patel.nikesh08@gmail.com'">
-        Email Me
-      </button>
-    </div>
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <div class="container footer-inner">
+        <p>&copy; <span id="year">2026</span> Nikesh Patel. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="https://nikeshp71.github.io/resume" target="_blank" rel="noopener">Resume</a>
+          <a href="https://www.linkedin.com/in/nikesh-patel08" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:patel.nikesh08@gmail.com">Email</a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+      (function () {
+        var EMAIL = 'patel.nikesh08@gmail.com';
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Nav border on scroll
+        var nav = document.getElementById('nav');
+        function onScroll() {
+          nav.classList.toggle('scrolled', window.scrollY > 10);
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // Mobile menu
+        var toggle = document.getElementById('nav-toggle');
+        var links = document.getElementById('nav-links');
+        toggle.addEventListener('click', function () {
+          var open = links.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', String(open));
+        });
+        links.addEventListener('click', function (e) {
+          if (e.target.tagName === 'A') {
+            links.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        // Highlight the nav link for the section in view
+        var navAnchors = Array.prototype.slice.call(links.querySelectorAll('a[href^="#"]'));
+        var reveals = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+          var sectionObserver = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                navAnchors.forEach(function (a) {
+                  a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+                });
+              });
+            },
+            { rootMargin: '-45% 0px -50% 0px' }
+          );
+          document.querySelectorAll('section[id]').forEach(function (s) {
+            sectionObserver.observe(s);
+          });
+
+          // Fade-in on scroll
+          var revealObserver = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('visible');
+                  revealObserver.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.12 }
+          );
+          reveals.forEach(function (el) {
+            revealObserver.observe(el);
+          });
+        } else {
+          reveals.forEach(function (el) {
+            el.classList.add('visible');
+          });
+        }
+
+        // Copy email
+        var toast = document.getElementById('toast');
+        var toastTimer;
+        function showToast(msg) {
+          toast.textContent = msg;
+          toast.classList.add('show');
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(function () {
+            toast.classList.remove('show');
+          }, 2000);
+        }
+        function fallbackCopy(text) {
+          var field = document.createElement('textarea');
+          field.value = text;
+          field.setAttribute('readonly', '');
+          field.style.position = 'fixed';
+          field.style.opacity = '0';
+          document.body.appendChild(field);
+          field.select();
+          var ok = false;
+          try {
+            ok = document.execCommand('copy');
+          } catch (e) {}
+          document.body.removeChild(field);
+          return ok;
+        }
+        document.getElementById('copy-email').addEventListener('click', function () {
+          var done = function (ok) {
+            showToast(ok ? 'Email copied: ' + EMAIL : 'Copy failed: ' + EMAIL);
+          };
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(EMAIL).then(
+              function () { done(true); },
+              function () { done(fallbackCopy(EMAIL)); }
+            );
+          } else {
+            done(fallbackCopy(EMAIL));
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
