@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- The title becomes the default PDF file name when saving -->
+    <title>Nikesh Patel - Resume</title>
+    <meta
+      name="description"
+      content="Nikesh Patel – Senior React Native Engineer with 9+ years building iOS, Android and smart TV apps (Android TV, Fire TV, Apple TV) with React Native, TypeScript and Swift." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --heading-font: Tinos, 'Liberation Serif', 'Times New Roman', Times, serif;
+        --body-font: Tinos, 'Liberation Serif', 'Times New Roman', Times, serif;
+        --primary: #1e3a5f;
+        --dark: #222;
+        --mid: #444;
+        --light-text: #555;
+        --section-bg: #f3f5f9;
+        --border: #d0d5dd;
+        --white: #fff;
+        --page-w: 210mm;
+        --page-h: 297mm;
+        --page-margin: 12mm;
+      }
+
+      body {
+        font-family: var(--body-font);
+        color: var(--dark);
+        background: #6b7280;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 16px 120px;
+        line-height: 1.35;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .resume {
+        background: var(--white);
+        width: var(--page-w);
+        max-width: 100%;
+        min-height: var(--page-h);
+        padding: var(--page-margin);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+      }
+
+      a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* ===== HEADER ===== */
+      .header {
+        text-align: center;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--primary);
+        margin-bottom: 12px;
+      }
+      .header h1 {
+        font-family: var(--heading-font);
+        font-size: 22pt;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 2px;
+      }
+      .header .headline {
+        font-size: 12pt;
+        font-weight: 600;
+        letter-spacing: 0.4px;
+        color: var(--dark);
+        margin-bottom: 7px;
+      }
+      .header .contact {
+        font-size: 10pt;
+        line-height: 1.6;
+        color: var(--dark);
+      }
+      .header .sep {
+        margin: 0 6px;
+        color: var(--border);
+      }
+
+      /* ===== SECTIONS ===== */
+      .section {
+        margin-bottom: 12px;
+      }
+      .section h2 {
+        font-size: 12pt;
+        font-weight: 700;
+        /* no letter-spacing: spaced capitals get parsed as "P R O F I L E" by ATS */
+        text-transform: uppercase;
+        color: var(--primary);
+        background: var(--section-bg);
+        border-left: 3px solid var(--primary);
+        padding: 5px 10px;
+        margin-bottom: 7px;
+      }
+
+      .summary {
+        font-size: 10.5pt;
+        line-height: 1.4;
+      }
+
+      /* ===== SKILLS (single column for ATS) ===== */
+      .skills p {
+        font-size: 10.5pt;
+        line-height: 1.4;
+        margin-bottom: 2px;
+      }
+      .skills strong {
+        color: var(--primary);
+      }
+
+      /* ===== EXPERIENCE ===== */
+      .job {
+        margin-bottom: 11px;
+      }
+      .job-line,
+      ul.bullets li {
+        break-inside: avoid;
+      }
+      .job-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+      }
+      .job h3 {
+        font-size: 11pt;
+        font-weight: 700;
+        color: var(--dark);
+      }
+      .job .company {
+        font-size: 10.5pt;
+        font-weight: 600;
+        color: var(--primary);
+      }
+      .job .meta {
+        font-size: 10pt;
+        color: var(--light-text);
+        white-space: nowrap;
+      }
+      .job.edu {
+        margin-bottom: 7px;
+        break-inside: avoid;
+      }
+      ul.bullets {
+        list-style: disc;
+        padding-left: 16px;
+        margin-top: 4px;
+      }
+      ul.bullets li {
+        font-size: 10.5pt;
+        line-height: 1.35;
+        margin-bottom: 2.5px;
+      }
+
+      /* ===== PROJECTS (single column for ATS) ===== */
+      .project {
+        margin-bottom: 5px;
+        font-size: 10.5pt;
+        line-height: 1.35;
+        break-inside: avoid;
+      }
+      .project strong {
+        color: var(--primary);
+      }
+      .project .tech {
+        color: var(--mid);
+        font-style: italic;
+      }
+
+      .plain-list {
+        list-style: none;
+      }
+      .plain-list li {
+        font-size: 10.5pt;
+        margin-bottom: 3px;
+      }
+      .plain-list strong {
+        color: var(--primary);
+      }
+
+      /* ===== ACTION BUTTONS ===== */
+      .actions {
+        position: fixed;
+        right: 20px;
+        bottom: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        z-index: 100;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        min-width: 132px;
+        padding: 10px 14px;
+        border: none;
+        border-radius: 6px;
+        font: 600 12px/1 -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+        transition:
+          transform 0.15s,
+          opacity 0.15s;
+      }
+      .btn:hover {
+        opacity: 0.92;
+        text-decoration: none;
+        transform: translateY(-1px);
+      }
+      .btn:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 2px;
+      }
+      .btn svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+        flex-shrink: 0;
+      }
+      .btn-pdf { background: #1a1a1a; }
+      .btn-email { background: #2563eb; }
+      .btn-call { background: #15803d; }
+      .btn-linkedin { background: #0a66c2; }
+      .btn-portfolio { background: #7c3aed; }
+
+      .toast {
+        position: fixed;
+        left: 50%;
+        bottom: 28px;
+        transform: translate(-50%, 20px);
+        background: #111;
+        color: #fff;
+        font-size: 13px;
+        padding: 10px 16px;
+        border-radius: 6px;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+        z-index: 200;
+      }
+      .toast.show {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+
+      /* Phones: buttons become a wrapping bar along the bottom */
+      @media (max-width: 760px) {
+        body {
+          padding: 16px 16px 150px;
+        }
+        .resume {
+          padding: 16px;
+          min-height: 0;
+        }
+        .actions {
+          left: 0;
+          right: 0;
+          bottom: 0;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+          padding: 10px 16px;
+          background: rgba(17, 24, 39, 0.92);
+        }
+        .btn {
+          min-width: 0;
+          flex: 1 1 30%;
+        }
+        .job-line {
+          flex-wrap: wrap;
+          gap: 0 12px;
+        }
+      }
+
+      /* ===== PRINT / SAVE AS PDF ===== */
+      @media print {
+        @page {
+          size: A4;
+          margin: 10mm 12mm;
+        }
+        body {
+          background: #fff;
+          padding: 0;
+          display: block;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .resume {
+          width: 100%;
+          max-width: none;
+          min-height: 0;
+          box-shadow: none;
+          padding: 0;
+        }
+        .no-print {
+          display: none !important;
+        }
+        .section h2 {
+          break-after: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="resume">
+      <!-- ===== HEADER ===== -->
+      <header class="header">
+        <h1>Nikesh Patel</h1>
+        <p class="headline">Senior React Native Engineer | iOS (Swift) &amp; Smart TV Apps (React Native tvOS)</p>
+        <p class="contact">
+          Anand, Gujarat, India
+          <span class="sep">|</span>
+          <a href="tel:+919727272120">+91 97272 72120</a>
+          <span class="sep">|</span>
+          <a href="mailto:patel.nikesh08@gmail.com">patel.nikesh08@gmail.com</a>
+          <span class="sep">|</span>
+          <a href="https://www.linkedin.com/in/nikesh-patel08" target="_blank" rel="noopener"
+            >linkedin.com/in/nikesh-patel08</a
+          >
+        </p>
+      </header>
+
+      <!-- ===== SUMMARY ===== -->
+      <section class="section">
+        <h2>Professional Summary</h2>
+        <p class="summary">
+          Mobile and TV app engineer with 9+ years of experience building iOS, Android and smart TV
+          apps with React Native, TypeScript and native iOS (Swift, Objective-C). Currently leading development of a
+          consumer app with 1M users and a 99% crash-free rate. Comfortable on both sides of the
+          React Native bridge, including writing custom native modules when a library falls short.
+          Shipped OTT streaming apps for Android TV, Amazon Fire TV and Apple TV (tvOS) with HLS,
+          MPEG-DASH and DRM (Widevine, PlayReady), visionOS features in SwiftUI, iOS Home Screen
+          widgets, REST and GraphQL API integrations, push notification delivery, and over-the-air
+          (OTA) updates. Known for clean, well-reviewed code, smooth and
+          polished interfaces, and leading teams of up to 4 developers.
+        </p>
+      </section>
+
+      <!-- ===== SKILLS ===== -->
+      <section class="section skills">
+        <h2>Technical Skills</h2>
+        <p>
+          <strong>Languages:</strong> JavaScript (ES6+), TypeScript, Swift, Objective-C
+        </p>
+        <p>
+          <strong>Platforms &amp; Frameworks:</strong> React Native, iOS, Android, SwiftUI, visionOS
+          (Apple Vision Pro), Cross-Platform Mobile Development
+        </p>
+        <p>
+          <strong>TV Platforms:</strong> React Native tvOS, Android TV, Amazon Fire TV, Apple TV (tvOS), TVML, Smart TV
+          / Connected TV (CTV) Apps, D-pad &amp; Remote Focus Navigation, Top Shelf
+        </p>
+        <p>
+          <strong>APIs &amp; State Management:</strong> REST APIs, GraphQL, Apollo Client, React
+          Query, Redux, MobX
+        </p>
+        <p>
+          <strong>Video Streaming &amp; Playback:</strong> HLS, MPEG-DASH, DRM (Widevine,
+          PlayReady), Closed Captions &amp; Subtitles, AVPlayer, Google Cast (Chromecast), AirPlay,
+          OTT Streaming
+        </p>
+        <p>
+          <strong>Native iOS:</strong> Native Modules &amp; Bridges, Home Screen Widgets, App
+          Extensions, CocoaPods, Manual Linking
+        </p>
+        <p>
+          <strong>UI &amp; Animation:</strong> NativeBase, Lottie, Moti, Responsive &amp; Adaptive
+          Layouts
+        </p>
+        <p>
+          <strong>Integrations &amp; SDKs:</strong> Push Notifications (AppsOnAir Push SDK,
+          OneSignal), Firebase Analytics, Sentry, Stripe, In-App Purchases
+        </p>
+        <p>
+          <strong>Tools &amp; Code Quality:</strong> Git, CodePush (OTA Updates), Husky, SonarQube,
+          Flipper, ClickUp
+        </p>
+        <p>
+          <strong>Practices:</strong> Performance Optimization, Bundle Size Reduction, App Security,
+          Code Review, Mentoring, Agile / Sprint Planning
+        </p>
+      </section>
+
+      <!-- ===== EXPERIENCE ===== -->
+      <section class="section">
+        <h2>Professional Experience</h2>
+
+        <article class="job">
+          <div class="job-line">
+            <h3>Senior React Native Engineer (Mobile &amp; Smart TV)</h3>
+            <span class="meta">Sep 2019 &ndash; Present</span>
+          </div>
+          <div class="job-line">
+            <span class="company">Logicwind Technologies LLP</span>
+            <span class="meta">Surat, Gujarat, India</span>
+          </div>
+          <ul class="bullets">
+            <li>
+              Lead React Native development for a high-traffic consumer app with
+              1M users, taking features from sprint planning to release.
+            </li>
+            <li>
+              Keep the app stable in production at a 99% crash-free rate across iOS
+              and Android.
+            </li>
+            <li>
+              Lead a team of up to 4 developers: review pull requests, manage
+              feature branches in Git, and mentor junior developers on React Native, TypeScript and
+              native iOS.
+            </li>
+            <li>
+              Write custom Native Modules in Swift and Objective-C, and patch npm
+              packages directly, so we can meet product requirements without maintaining forks.
+            </li>
+            <li>
+              Built encrypted app configuration and secure storage to protect
+              sensitive keys and user data.
+            </li>
+            <li>
+              Improved app performance and reduced bundle size on both iOS and
+              Android.
+            </li>
+            <li>
+              Set up over-the-air updates with CodePush so fixes reach users
+              without waiting on a full App Store release.
+            </li>
+            <li>
+              Built streaming apps for Android TV, Amazon Fire TV and Apple TV (tvOS), with
+              D-pad and remote focus navigation, closed captions, and Top Shelf content on Apple TV.
+            </li>
+            <li>
+              Delivered adaptive streaming with HLS and MPEG-DASH, protected by
+              DRM (Widevine and PlayReady), plus casting with
+              Chromecast (Google Cast) and AirPlay and background audio playback.
+            </li>
+            <li>
+              Built visionOS features with SwiftUI, bringing app
+              content to Apple Vision Pro.
+            </li>
+            <li>
+              Integrated REST and GraphQL APIs using Apollo Client and React
+              Query.
+            </li>
+            <li>
+              Contributed to the AppsOnAir Push SDK, which handles push
+              notification delivery for the mobile apps that integrate it.
+            </li>
+            <li>
+              Built smooth, detailed UI with NativeBase, Lottie and Moti animations that closely
+              match the design files.
+            </li>
+            <li>
+              Added Husky pre-commit hooks and SonarQube checks so quality issues are caught before
+              code is merged.
+            </li>
+            <li>
+              Plan scope for upcoming sprints with the product team and track delivery in ClickUp.
+            </li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-line">
+            <h3>Senior iOS &amp; React Native Developer</h3>
+            <span class="meta">Jan 2017 &ndash; Aug 2019</span>
+          </div>
+          <div class="job-line">
+            <span class="company">Hands Together Tech</span>
+            <span class="meta">Surat, Gujarat, India</span>
+          </div>
+          <ul class="bullets">
+            <li>
+              Built a set of reusable, stateless UI components with responsive layouts that handle
+              rotation across every device size.
+            </li>
+            <li>
+              Managed app state with MobX, keeping data flow simple and
+              predictable.
+            </li>
+            <li>
+              Integrated Stripe payments and In-App Purchases,
+              including purchase restore, for large-scale apps.
+            </li>
+            <li>
+              Customized the GUIPlayer library to build a native iOS video player that matched
+              product requirements.
+            </li>
+            <li>
+              Added Firebase Analytics event tracking and Sentry crash reporting,
+              and used the data to fix issues and improve the user experience.
+            </li>
+            <li>
+              Resolved native dependency conflicts and integrated third-party iOS libraries with
+              CocoaPods and manual linking.
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- ===== PROJECTS ===== -->
+      <section class="section">
+        <h2>Key Projects</h2>
+        <p class="project">
+          <strong>Vimeo Player Bridge (iOS)</strong> &ndash;
+          <span class="tech">Swift, React Native Native Module</span><br />
+          Wrote a custom native bridge for the Vimeo player, unlocking playback features that
+          existing React Native libraries didn't support.
+        </p>
+        <p class="project">
+          <strong>iOS Home Screen Widgets</strong> &ndash;
+          <span class="tech">SwiftUI, WidgetKit, App Extensions</span><br />
+          Built native widgets that surface key app content on the Home Screen and bring users back
+          into the app.
+        </p>
+        <p class="project">
+          <strong>In-App Update Prompt</strong> &ndash; <span class="tech">Swift, Native UI</span
+          ><br />
+          Built a plugin that detects new App Store versions and shows users a custom native update
+          screen.
+        </p>
+        <p class="project">
+          <strong>Multi-Environment App Setup</strong> &ndash;
+          <span class="tech">React Native, Build Configuration</span><br />
+          Set up dev, staging and production builds from one codebase, each with its own app icon,
+          splash screen and theme.
+        </p>
+        <p class="project">
+          <strong>Secure App Configuration</strong> &ndash;
+          <span class="tech">Encryption, Secure Storage</span><br />
+          Encrypted environment configuration and built secure retrieval for sensitive app data.
+        </p>
+        <p class="project">
+          <strong>TV Streaming Apps (Android TV, Fire TV &amp; Apple TV)</strong> &ndash;
+          <span class="tech">HLS, MPEG-DASH, Widevine, PlayReady, Chromecast, AirPlay</span><br />
+          Built DRM-protected OTT video apps for Android TV, Amazon Fire TV and Apple TV, with D-pad
+          and remote navigation, Top Shelf content, captions and casting.
+        </p>
+      </section>
+
+      <!-- ===== EDUCATION ===== -->
+      <section class="section">
+        <h2>Education</h2>
+
+        <article class="job edu">
+          <div class="job-line">
+            <h3>Bachelor of Technology (B.Tech), Computer Engineering</h3>
+            <span class="meta">2014 &ndash; 2017</span>
+          </div>
+          <div class="job-line">
+            <span class="company">Uka Tarsadia University</span>
+            <span class="meta">Gujarat, India</span>
+          </div>
+        </article>
+
+        <article class="job edu">
+          <div class="job-line">
+            <h3>Diploma in Engineering, Computer Engineering</h3>
+            <span class="meta">2011 &ndash; 2014</span>
+          </div>
+          <div class="job-line">
+            <span class="company">Gujarat Technological University</span>
+            <span class="meta">Gujarat, India</span>
+          </div>
+        </article>
+      </section>
+
+      <!-- ===== AWARDS ===== -->
+      <section class="section">
+        <h2>Awards</h2>
+        <ul class="plain-list">
+          <li>
+            <strong>Employee of the Year</strong> (2022) &ndash; Logicwind Technologies LLP
+          </li>
+          <li>
+            <strong>Ultimate Performer of the Year</strong> (2021) &ndash; Logicwind Technologies LLP
+          </li>
+          <li>
+            <strong>Ultimate Contributor of the Month</strong> (Dec 2021) &ndash; Logicwind
+            Technologies LLP
+          </li>
+        </ul>
+      </section>
+
+      <!-- ===== ADDITIONAL ===== -->
+      <section class="section">
+        <h2>Additional Information</h2>
+        <ul class="plain-list">
+          <li><strong>Languages:</strong> English, Hindi, Gujarati</li>
+          <li>
+            <strong>Interests:</strong> Exploring new mobile technologies and platform features (R&amp;D),
+            visionOS, Swift programming, writing technical blog posts
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- ===== ACTION BUTTONS (hidden when printing) ===== -->
+    <nav class="actions no-print" aria-label="Resume actions">
+      <button type="button" class="btn btn-pdf" id="btn-pdf">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/></svg>
+        Save as PDF
+      </button>
+      <button type="button" class="btn btn-email" id="btn-copy-email">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+        Copy Email
+      </button>
+      <a class="btn btn-call" href="tel:+919727272120">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z"/></svg>
+        Call Now
+      </a>
+      <a
+        class="btn btn-linkedin"
+        href="https://www.linkedin.com/in/nikesh-patel08"
+        target="_blank"
+        rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.3 18.3V10H5.7v8.3h2.6zM7 8.9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm11.3 9.4v-4.6c0-2.4-1.3-3.6-3-3.6-1.4 0-2 .8-2.3 1.3V10h-2.6v8.3H13v-4.4c0-1.1.2-2.2 1.6-2.2 1.4 0 1.4 1.3 1.4 2.3v4.3h2.3z"/></svg>
+        LinkedIn
+      </a>
+      <a
+        class="btn btn-portfolio"
+        href="https://nikeshp71.github.io/"
+        target="_blank"
+        rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4h4a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h4V6a2 2 0 0 1 2-2zm4 3V6h-4v1h4z"/></svg>
+        Portfolio
+      </a>
+    </nav>
+
+    <div class="toast no-print" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+      (function () {
+        var EMAIL = 'patel.nikesh08@gmail.com';
+        var toast = document.getElementById('toast');
+        var toastTimer;
+
+        function showToast(message) {
+          toast.textContent = message;
+          toast.classList.add('show');
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(function () {
+            toast.classList.remove('show');
+          }, 2000);
+        }
+
+        // Save as PDF: uses the browser's print-to-PDF so the PDF keeps real,
+        // selectable text (image-based PDFs can't be read by ATS software).
+        document.getElementById('btn-pdf').addEventListener('click', function () {
+          window.print();
+        });
+
+        // Copy Email: Clipboard API with a fallback for file:// and older browsers.
+        function fallbackCopy(text) {
+          var field = document.createElement('textarea');
+          field.value = text;
+          field.setAttribute('readonly', '');
+          field.style.position = 'fixed';
+          field.style.opacity = '0';
+          document.body.appendChild(field);
+          field.select();
+          var ok = false;
+          try {
+            ok = document.execCommand('copy');
+          } catch (e) {}
+          document.body.removeChild(field);
+          return ok;
+        }
+
+        document.getElementById('btn-copy-email').addEventListener('click', function () {
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(EMAIL).then(
+              function () {
+                showToast('Email copied: ' + EMAIL);
+              },
+              function () {
+                showToast(fallbackCopy(EMAIL) ? 'Email copied: ' + EMAIL : 'Copy failed: ' + EMAIL);
+              }
+            );
+          } else {
+            showToast(fallbackCopy(EMAIL) ? 'Email copied: ' + EMAIL : 'Copy failed: ' + EMAIL);
+          }
+        });
+
+      })();
+    </script>
+  </body>
+</html>
