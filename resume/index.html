@@ -24,12 +24,12 @@
       :root {
         --heading-font: Tinos, 'Liberation Serif', 'Times New Roman', Times, serif;
         --body-font: Tinos, 'Liberation Serif', 'Times New Roman', Times, serif;
-        --primary: #1e3a5f;
-        --dark: #222;
-        --mid: #444;
-        --light-text: #555;
-        --section-bg: #f3f5f9;
-        --border: #d0d5dd;
+        /* Black text with a single dark-navy accent (name + section rules) */
+        --primary: #1f2a44;
+        --dark: #111;
+        --mid: #333;
+        --light-text: #444;
+        --border: #999;
         --white: #fff;
         --page-w: 210mm;
         --page-h: 297mm;
@@ -58,7 +58,7 @@
       }
 
       a {
-        color: var(--primary);
+        color: inherit;
         text-decoration: none;
       }
       a:hover {
@@ -68,63 +68,59 @@
       /* ===== HEADER ===== */
       .header {
         text-align: center;
-        padding-bottom: 10px;
-        border-bottom: 2px solid var(--primary);
-        margin-bottom: 12px;
+        margin-bottom: 10px;
       }
       .header h1 {
         font-family: var(--heading-font);
-        font-size: 22pt;
+        font-size: 20pt;
         font-weight: 700;
         color: var(--primary);
-        margin-bottom: 2px;
+        margin-bottom: 3px;
       }
       .header .headline {
-        font-size: 12pt;
-        font-weight: 600;
-        letter-spacing: 0.4px;
+        font-size: 11pt;
+        font-weight: 700;
         color: var(--dark);
-        margin-bottom: 7px;
+        margin-bottom: 4px;
       }
       .header .contact {
         font-size: 10pt;
-        line-height: 1.6;
+        line-height: 1.5;
         color: var(--dark);
       }
       .header .sep {
-        margin: 0 6px;
+        margin: 0 4px;
         color: var(--border);
       }
 
       /* ===== SECTIONS ===== */
       .section {
-        margin-bottom: 12px;
+        margin-bottom: 10px;
       }
       .section h2 {
-        font-size: 12pt;
+        font-size: 11pt;
         font-weight: 700;
         /* no letter-spacing: spaced capitals get parsed as "P R O F I L E" by ATS */
         text-transform: uppercase;
         color: var(--primary);
-        background: var(--section-bg);
-        border-left: 3px solid var(--primary);
-        padding: 5px 10px;
-        margin-bottom: 7px;
+        border-bottom: 1px solid var(--primary);
+        padding-bottom: 2px;
+        margin-bottom: 6px;
       }
 
       .summary {
-        font-size: 10.5pt;
+        font-size: 10pt;
         line-height: 1.4;
+      }
+      .nowrap {
+        white-space: nowrap;
       }
 
       /* ===== SKILLS (single column for ATS) ===== */
       .skills p {
-        font-size: 10.5pt;
+        font-size: 10pt;
         line-height: 1.4;
-        margin-bottom: 2px;
-      }
-      .skills strong {
-        color: var(--primary);
+        margin-bottom: 1px;
       }
 
       /* ===== EXPERIENCE ===== */
@@ -142,19 +138,22 @@
         gap: 12px;
       }
       .job h3 {
-        font-size: 11pt;
+        font-size: 10.5pt;
         font-weight: 700;
         color: var(--dark);
       }
       .job .company {
-        font-size: 10.5pt;
-        font-weight: 600;
-        color: var(--primary);
+        font-size: 10pt;
+        font-style: italic;
+        color: var(--dark);
       }
       .job .meta {
         font-size: 10pt;
-        color: var(--light-text);
+        color: var(--dark);
         white-space: nowrap;
+      }
+      .job .job-line:first-child .meta {
+        font-weight: 700;
       }
       .job.edu {
         margin-bottom: 7px;
@@ -163,23 +162,20 @@
       ul.bullets {
         list-style: disc;
         padding-left: 16px;
-        margin-top: 4px;
+        margin-top: 3px;
       }
       ul.bullets li {
-        font-size: 10.5pt;
+        font-size: 10pt;
         line-height: 1.35;
-        margin-bottom: 2.5px;
+        margin-bottom: 2px;
       }
 
       /* ===== PROJECTS (single column for ATS) ===== */
       .project {
         margin-bottom: 5px;
-        font-size: 10.5pt;
+        font-size: 10pt;
         line-height: 1.35;
         break-inside: avoid;
-      }
-      .project strong {
-        color: var(--primary);
       }
       .project .tech {
         color: var(--mid);
@@ -190,11 +186,8 @@
         list-style: none;
       }
       .plain-list li {
-        font-size: 10.5pt;
-        margin-bottom: 3px;
-      }
-      .plain-list strong {
-        color: var(--primary);
+        font-size: 10pt;
+        margin-bottom: 2px;
       }
 
       /* ===== ACTION BUTTONS ===== */
@@ -207,6 +200,7 @@
         gap: 6px;
         z-index: 100;
       }
+      /* Each action gets its own colour: soft two-tone gradients, white text */
       .btn {
         display: inline-flex;
         align-items: center;
@@ -215,24 +209,35 @@
         min-width: 132px;
         padding: 10px 14px;
         border: none;
-        border-radius: 6px;
+        border-radius: 8px;
         font: 600 12px/1 -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+        letter-spacing: 0.2px;
         color: #fff;
         text-decoration: none;
         cursor: pointer;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+        box-shadow:
+          0 2px 6px rgba(15, 23, 42, 0.25),
+          inset 0 1px 0 rgba(255, 255, 255, 0.18);
         transition:
           transform 0.15s,
-          opacity 0.15s;
+          box-shadow 0.15s,
+          filter 0.15s;
       }
       .btn:hover {
-        opacity: 0.92;
         text-decoration: none;
         transform: translateY(-1px);
+        filter: brightness(1.08);
+        box-shadow:
+          0 6px 14px rgba(15, 23, 42, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.18);
+      }
+      .btn:active {
+        transform: translateY(0);
       }
       .btn:focus-visible {
         outline: 2px solid #fff;
         outline-offset: 2px;
+        box-shadow: 0 0 0 4px var(--primary);
       }
       .btn svg {
         width: 14px;
@@ -240,11 +245,11 @@
         fill: currentColor;
         flex-shrink: 0;
       }
-      .btn-pdf { background: #1a1a1a; }
-      .btn-email { background: #2563eb; }
-      .btn-call { background: #15803d; }
-      .btn-linkedin { background: #0a66c2; }
-      .btn-portfolio { background: #7c3aed; }
+      .btn-pdf { background: linear-gradient(135deg, #e03e45, #b4232c); }
+      .btn-email { background: linear-gradient(135deg, #14b8a6, #0f766e); }
+      .btn-call { background: linear-gradient(135deg, #22c55e, #15803d); }
+      .btn-linkedin { background: linear-gradient(135deg, #1d8cf8, #0a66c2); }
+      .btn-portfolio { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
 
       .toast {
         position: fixed;
@@ -285,7 +290,9 @@
           flex-wrap: wrap;
           justify-content: center;
           padding: 10px 16px;
-          background: rgba(17, 24, 39, 0.92);
+          background: rgba(255, 255, 255, 0.96);
+          border-top: 1px solid #d5dae3;
+          box-shadow: 0 -2px 10px rgba(15, 23, 42, 0.12);
         }
         .btn {
           min-width: 0;
@@ -338,10 +345,12 @@
           <a href="tel:+919727272120">+91 97272 72120</a>
           <span class="sep">|</span>
           <a href="mailto:patel.nikesh08@gmail.com">patel.nikesh08@gmail.com</a>
-          <span class="sep">|</span>
+          <br />
           <a href="https://www.linkedin.com/in/nikesh-patel08" target="_blank" rel="noopener"
             >linkedin.com/in/nikesh-patel08</a
           >
+          <span class="sep">|</span>
+          <a href="https://nikeshp71.github.io/" target="_blank" rel="noopener">nikeshp71.github.io</a>
         </p>
       </header>
 
@@ -354,7 +363,7 @@
           consumer app with 1M users and a 99% crash-free rate. Comfortable on both sides of the
           React Native bridge, including writing custom native modules when a library falls short.
           Shipped OTT streaming apps for Android TV, Amazon Fire TV and Apple TV (tvOS) with HLS,
-          MPEG-DASH and DRM (Widevine, PlayReady), visionOS features in SwiftUI, iOS Home Screen
+          <span class="nowrap">MPEG-DASH</span> and DRM (Widevine, PlayReady), visionOS features in SwiftUI, iOS Home Screen
           widgets, REST and GraphQL API integrations, push notification delivery, and over-the-air
           (OTA) updates. Known for clean, well-reviewed code, smooth and
           polished interfaces, and leading teams of up to 4 developers.
