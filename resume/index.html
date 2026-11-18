@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- The title becomes the default PDF file name when saving -->
+    <!-- Swapped to NIKESH_PATEL_RESUME_DD_MMMM_YYYY while printing (see script below) -->
     <title>Nikesh Patel - Resume</title>
     <meta
       name="description"
@@ -662,6 +662,9 @@
 
     <div class="toast no-print" id="toast" role="status" aria-live="polite"></div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"
+      integrity="sha512-QoJS4DOhdmG8kbbHkxmB/rtPdN62cGWXAdAFWWJPvUFF1/zxcPSdAnn4HhYZSIlVoLVEJ0LesfNlusgm2bPfnA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
       (function () {
         var EMAIL = 'patel.nikesh08@gmail.com';
@@ -679,6 +682,20 @@
 
         // Save as PDF: uses the browser's print-to-PDF so the PDF keeps real,
         // selectable text (image-based PDFs can't be read by ATS software).
+        // Browsers use document.title as the default PDF file name, so swap it to
+        // NIKESH_PATEL_RESUME_DD_MMMM_YYYY while printing (also covers Ctrl/Cmd+P).
+        var originalTitle = document.title;
+
+        window.addEventListener('beforeprint', function () {
+          // If the moment.js CDN failed to load, keep the page's normal title.
+          if (window.moment) {
+            document.title = 'NIKESH_PATEL_RESUME_' + moment().format('DD_MMMM_YYYY');
+          }
+        });
+        window.addEventListener('afterprint', function () {
+          document.title = originalTitle;
+        });
+
         document.getElementById('btn-pdf').addEventListener('click', function () {
           window.print();
         });
